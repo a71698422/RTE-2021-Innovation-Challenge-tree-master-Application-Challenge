@@ -20,6 +20,12 @@
 			}
 		},
 		{
+			"path": "pages/index/assistance",
+			"style": {
+				"navigationBarTitleText": "assistance"
+			}
+		},
+		{
 			"path": "pages/Advanced/MultiChannel",
 			"style": {
 				"navigationBarTitleText": "MultiChannel"

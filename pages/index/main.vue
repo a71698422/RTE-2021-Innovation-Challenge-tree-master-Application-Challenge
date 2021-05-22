@@ -1,33 +1,75 @@
 <template>
 	<view class="page">
-		<view class="flex align-center mt-32">
-			<uni-list class="text-left" :border="false">
-				<uni-list-item showArrow="true" title="电话客服" showExtraIcon="true">
-					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_service.png"></image>
-					</template>
-				</uni-list-item>
-			</uni-list>
+		<view class="uni-list">
+			<block v-for="(value, index) in lawyerlist" :key="index">
+				<main-item :item="value" :index="index"></main-item>
+			</block>
 		</view>
+		<uni-load-more :status="status" :icon-size="16" :content-text="contentText" />
 	</view>
 </template>
 
 <script>
-	import uniListItem from '@/components/uni-list-item/uni-list-item.vue';
+	// 测试数据
+	const lawyerdemo = [{
+			docname: "王娟",
+			docavatar: "/static/icons/icon-avatarimg.png",
+			doclevel: "主治医师",
+			dochospital: "上海市第一人民医院",
+			docpartment: "耳鼻喉科",
+			doctag: "三甲",
+			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docconsultation: 945,
+			docresponse:45,
+			docfootprice: 35
+		},
+		{
+			docname: "王娟",
+			docavatar: "/static/icons/icon-doctarimg.png",
+			doclevel: "主治医师",
+			dochospital: "上海市第一人民医院",
+			docpartment: "耳鼻喉科",
+			doctag: "三甲",
+			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docconsultation: 945,
+			docresponse:45,
+			docfootprice: 35
+		},
+		{
+			docname: "王娟",
+			docavatar: "/static/icons/icon_marshalling.png",
+			doclevel: "主治医师",
+			dochospital: "上海市第一人民医院",
+			docpartment: "耳鼻喉科",
+			doctag: "三甲",
+			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docconsultation: 945,
+			docresponse:45,
+			docfootprice: 35
+		}
+	];
+	import mainItem from '@/components/news/main-item.vue';
 	export default {
 		components: {
-			uniListItem
+			mainItem
 		},
 		data() {
 			return {
-				titleString: "医生列表"
+				titleString: "医生列表",
+				lawyerlist: [],
+				status: 'more',
+				contentText: {
+					contentdown: '上拉加载更多',
+					contentrefresh: '加载中',
+					contentnomore: '没有更多'
+				}
 			}
 		},
 		onLoad(e) {
-
+			this.lawyerlist = [...lawyerdemo,...lawyerdemo];
 		},
 		methods: {
-			
+
 		},
 	}
 </script>

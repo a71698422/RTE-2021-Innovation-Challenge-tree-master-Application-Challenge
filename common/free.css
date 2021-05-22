@@ -456,8 +456,16 @@
 	height: 20rpx;
 }
 
+.hei-36 {
+	height: 36rpx;
+}
+
 .hei-40 {
 	height: 40rpx;
+}
+
+.hei-48 {
+	height: 48rpx;
 }
 
 .hei-128 {
@@ -489,15 +497,19 @@
 .mb-01 {
 	margin-bottom: -10rpx;
 }
-.mt-1 {
+.mt-10 {
 	margin-top: 10rpx;
 }
 
-.mt-2 {
+.mt-16 {
+	margin-top: 16rpx;
+}
+
+.mt-20 {
 	margin-top: 20rpx;
 }
 
-.mt-3 {
+.mt-30 {
 	margin-top: 30rpx;
 }
 
@@ -1326,7 +1338,7 @@
 }
 
 .text-green {
-	color: #43CF7C;
+	color: #25B4A5;
 }
 
 .text-hover-light {
