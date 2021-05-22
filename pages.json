@@ -56,13 +56,13 @@
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"list": [{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/index/main",
 				"iconPath": "static/tabbar/icon_info_nor.png",
 				"selectedIconPath": "static/tabbar/icon_info_gre.png",
 				"text": "消息"
 			},
 			{
-				"pagePath": "pages/index/functionway",
+				"pagePath": "pages/index/assistance",
 				"iconPath": "static/tabbar/icon_cont_nor.png",
 				"selectedIconPath": "static/tabbar/icon_cont_gre.png",
 				"text": "我的问诊"
