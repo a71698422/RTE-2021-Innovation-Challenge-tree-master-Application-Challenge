@@ -25,7 +25,6 @@
 		},
 		onLoad(e) {
 
-
 		},
 		methods: {
 			
@@ -74,10 +73,10 @@
 	.slot-circle-image {
 		/* #ifndef APP-NVUE */
 		display: block;
+		/* #endif */
 		background-color: #FFEFE7;
 		padding: 16rpx;
 		border-radius: 32rpx;
-		/* #endif */
 		margin: 4rpx 32rpx 4rpx 4rpx;
 		width: 64rpx;
 		height: 64rpx;
