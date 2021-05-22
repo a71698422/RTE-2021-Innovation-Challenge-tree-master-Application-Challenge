@@ -5,10 +5,10 @@
 			"style": {
 				"navigationBarTitleText": "医生列表",
 				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#FFFFFF",
-				"backgroundColor": "#FFFFFF",
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
 				"app-plus": {
-					"background": "#FFFFFF"
+					"background": "#F7F8FA"
 				}
 			}
 			
@@ -47,12 +47,12 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#F7F8FA",
+		"backgroundColor": "#F7F8FA"
 	},
 	"tabBar": {
 		"color": "#bfbfbf",
-		"selectedColor": "#FF9051",
+		"selectedColor": "#25B4A5",
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"list": [{

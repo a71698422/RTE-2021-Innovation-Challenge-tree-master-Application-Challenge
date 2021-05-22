@@ -37,7 +37,7 @@
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
-		background-color: #F2F2F2;
+		background-color: #F7F8FA;
 		min-height: 100%;
 		height: auto;
 	}
