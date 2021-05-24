@@ -38,7 +38,7 @@
 		methods: {
 			open() {
 				uni.navigateTo({
-					// url: '../../pages/topic-detail/topic-detail?detail='+JSON.stringify(this.item),
+					url: '../../pages/index/doc_detail/doc_detail?detailData='+JSON.stringify(this.item),
 				});
 			}
 		},

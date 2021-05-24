@@ -1,5 +1,8 @@
 <template>
 	<view class="page">
+		<view class="search-header">
+			<uni-search-bar @confirm="search" @input="input" @cancel="cancel" class="search-body" bgColor="#FFFFFF" />
+		</view>
 		<view class="uni-list">
 			<block v-for="(value, index) in lawyerlist" :key="index">
 				<main-item :item="value" :index="index"></main-item>
@@ -20,7 +23,7 @@
 			doctag: "三甲",
 			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
 			docconsultation: 945,
-			docresponse:45,
+			docresponse: 45,
 			docfootprice: 35
 		},
 		{
@@ -32,7 +35,7 @@
 			doctag: "三甲",
 			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
 			docconsultation: 945,
-			docresponse:45,
+			docresponse: 45,
 			docfootprice: 35
 		},
 		{
@@ -44,7 +47,7 @@
 			doctag: "三甲",
 			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
 			docconsultation: 945,
-			docresponse:45,
+			docresponse: 45,
 			docfootprice: 35
 		}
 	];
@@ -57,6 +60,7 @@
 			return {
 				titleString: "医生列表",
 				lawyerlist: [],
+				reload: false,
 				status: 'more',
 				contentText: {
 					contentdown: '上拉加载更多',
@@ -66,10 +70,47 @@
 			}
 		},
 		onLoad(e) {
-			this.lawyerlist = [...lawyerdemo,...lawyerdemo];
+			this.lawyerlist = [...lawyerdemo, ...lawyerdemo];
+		},
+		onPullDownRefresh() {
+			this.reload = true;
+			this.getList();
+		},
+		onReachBottom() {
+			this.status = 'more';
+			this.getList();
 		},
 		methods: {
-
+			getList() {
+				if(this.reload){
+					this.lawyerlist = lawyerdemo;
+					this.reload = false;
+					uni.stopPullDownRefresh();
+				}else{
+					if (this.lawyerlist.length < 10) {
+						uni.showToast({
+							title: "loading",
+							icon: "loading",
+							duration: 2000
+						})
+						this.lawyerlist = this.lawyerlist.concat(lawyerdemo);
+						// this.lawyerlist = [...this.lawyerlist, ...lawyerdemo];
+					} else {
+						uni.showModal({
+						    title: '提示',
+							showCancel: false,
+						    content: '没有更多医生',
+						    success: function (res) {
+						        if (res.confirm) {
+						            console.log('用户点击确定');
+						        } else if (res.cancel) {
+						            console.log('用户点击取消');
+						        }
+						    }
+						});
+					}
+				}
+			},
 		},
 	}
 </script>
@@ -82,6 +123,20 @@
 		background-color: #F7F8FA;
 		min-height: 100%;
 		height: auto;
+	}
+
+	.search-header {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 4rpx;
+		font-size: 28rpx;
+		background-color: #F7F8FA;
+	}
+
+	.search-body {
+		margin: 8rpx;
+		background-color: #F7F8FA;
 	}
 
 	.width-20 {

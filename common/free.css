@@ -418,6 +418,10 @@
 	margin: 30rpx;
 }
 
+.m-32 {
+	margin: 32rpx;
+}
+
 .m-40 {
 	margin: 40rpx;
 }
@@ -500,7 +504,9 @@
 .mt-10 {
 	margin-top: 10rpx;
 }
-
+.mt-4 {
+	margin-top: 4rpx;
+}
 .mt-16 {
 	margin-top: 16rpx;
 }
@@ -517,7 +523,7 @@
 	margin-top: 32rpx;
 }
 
-.mt-4 {
+.mt-40 {
 	margin-top: 40rpx;
 }
 
@@ -1149,6 +1155,10 @@
 }
 
 .font-lg {
+	font-size: 40rpx;
+}
+
+.font-40 {
 	font-size: 40rpx;
 }
 

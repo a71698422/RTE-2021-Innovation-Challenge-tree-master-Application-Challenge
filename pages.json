@@ -9,7 +9,8 @@
 				"backgroundColor": "#F7F8FA",
 				"app-plus": {
 					"background": "#F7F8FA"
-				}
+				},
+				"enablePullDownRefresh": true
 			}
 			
 		},
@@ -49,7 +50,27 @@
 				"navigationBarTitleText": "StringUid"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/index/doc_detail/doc_detail",
+            "style" :                                                                                    
+            {
+				"app-plus": {
+					"titleNView": false
+				},
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/customer-consultation/customer-consultation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的问诊",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -68,7 +89,7 @@
 				"text": "消息"
 			},
 			{
-				"pagePath": "pages/index/assistance",
+				"pagePath": "pages/customer-consultation/customer-consultation",
 				"iconPath": "static/tabbar/icon_cont_nor.png",
 				"selectedIconPath": "static/tabbar/icon_cont_gre.png",
 				"text": "我的问诊"
