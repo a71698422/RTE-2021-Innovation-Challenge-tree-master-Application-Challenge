@@ -2,7 +2,7 @@
 	<view class="page">
 		<scroll-view scroll-y="true" :style="'height:'+scrollH+'px;'" @scrolltolower="loadmoreEvent">
 			<block v-for="(item,index) in consultlist" :key="index">
-				<consultation-item :item="item" :index="index" @click="openDetail"></consultation-item>
+				<consultation-item :item="item" :index="index" @click="openDetail(item)"></consultation-item>
 			</block>
 			<load-more :loadmore="loadmore"></load-more>
 		</scroll-view>
@@ -19,45 +19,49 @@
 			dochospital: "上海市第一人民医院",
 			docpartment: "消化内科",
 			consultag: "图文",
-			consulstate: 1,
+			consultype:1,//问诊类型：1,图文,2,音频,3,视频
+			consulstate: 1,//问诊状态：1,待接诊,2,咨询中,3,已完成
 			consulnote: "待接诊",
-			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼",
+			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼肚子疼",
 			consultime: "2017-09-02 10:33",
 		},
 		{
 			docname: "张清北",
-			docavatar: "/static/icons/icon-avatarimg.png",
+			docavatar: "/static/icons/icon-doctarimg.png",
 			doclevel: "主治医师",
 			dochospital: "上海市第一人民医院",
 			docpartment: "消化内科",
 			consultag: "音频",
-			consulstate: 2,
+			consultype:2,//问诊类型：1,图文,2,音频,3,视频
+			consulstate: 2,//问诊状态：1,待接诊,2,咨询中,3,已完成
 			consulnote: "咨询中",
-			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼",
+			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼肚子疼",
 			consultime: "2017-09-02 10:33",
 		},
 		{
 			docname: "张清北",
-			docavatar: "/static/icons/icon-avatarimg.png",
+			docavatar: "/static/icons/icon_marshalling.png",
 			doclevel: "主治医师",
 			dochospital: "上海市第一人民医院",
 			docpartment: "消化内科",
 			consultag: "图文",
-			consulstate: 3,
+			consultype:1,//问诊类型：1,图文,2,音频,3,视频
+			consulstate: 3,//问诊状态：1,待接诊,2,咨询中,3,已完成
 			consulnote: "已完成",
-			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼",
+			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼肚子疼",
 			consultime: "2017-09-02 10:33",
 		},
 		{
 			docname: "张清北",
-			docavatar: "/static/icons/icon-avatarimg.png",
+			docavatar: "/static/icons/icon_marshalling.png",
 			doclevel: "主治医师",
 			dochospital: "上海市第一人民医院",
 			docpartment: "消化内科",
-			consultag: "图文",
-			consulstate: 3,
+			consultag: "视频",
+			consultype:3,//问诊类型：1,图文,2,音频,3,视频
+			consulstate: 4,//问诊状态：1,待接诊,2,咨询中,3,已完成,4,已取消
 			consulnote: "已完成",
-			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼",
+			consultitle: "主诉：最近总是腹泻 腹泻时肚子疼肚子疼肚子疼",
 			consultime: "2017-09-02 10:33",
 		}
 	];
@@ -83,6 +87,9 @@
 			this.consultlist = [...consultdemo, ...consultdemo];
 		},
 		methods: {
+			openDetail(item) {
+				console.log(item.consultag);
+			},
 			// 上拉加载
 			loadmoreEvent() {
 				// 验证当前是否处于可加载状态

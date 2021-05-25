@@ -1,5 +1,8 @@
 <template>
 	<view class="page">
+		<uni-nav-bar :status-bar="true" backgroundColor="#07C193" color="#ffffff" left-icon="back" :border="false"
+			@clickLeft="goBack">
+		</uni-nav-bar>
 		<view class="docdetail_header">
 			<view class="docdetail_head_bg">
 				<view class="bg_square_01"></view>
@@ -13,11 +16,13 @@
 							<view class="hei-48"><text class="font-34 text-bold">{{detailData.docname}}</text>
 								<text class="font-24 ml-20">{{detailData.doclevel}}</text>
 							</view>
-							<view class="mt-16"><text class="font-24">{{detailData.dochospital}}&nbsp;&nbsp;&nbsp;&nbsp;{{detailData.docpartment}}</text></view>
+							<view class="mt-16"><text
+									class="font-24">{{detailData.dochospital}}&nbsp;&nbsp;&nbsp;&nbsp;{{detailData.docpartment}}</text>
+							</view>
 							<view class="docdet-item-docexpert">
 								{{detailData.docexpert}}
 							</view>
-							<view class="docdet-item-docexpert">
+							<view class="docdet-item-bottom">
 								<view class="docdet-item-cell">
 									<text class="hei-36">问诊量</text><text
 										class="font-40 text-cyan font-weight-bolder">{{detailData.docconsultation}}</text>
@@ -81,7 +86,11 @@
 </template>
 
 <script>
+	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
 	export default {
+		components: {
+			uniNavBar
+		},
 		data() {
 			return {
 				detailData: {}
@@ -93,7 +102,12 @@
 			console.log(this.sciencelist);
 		},
 		methods: {
-
+			// 返回上一步
+			goBack() {
+				uni.navigateBack({
+					delta: 1
+				});
+			},
 		}
 	}
 </script>
@@ -111,7 +125,7 @@
 	.docdetail_header {
 		display: flex;
 		width: 100%;
-		height: 640rpx;
+		height: 540rpx;
 
 	}
 
@@ -119,7 +133,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		height: 640rpx;
+		height: 480rpx;
 	}
 
 	.bg_square_01 {
@@ -133,19 +147,12 @@
 		flex: 1;
 	}
 
-	.docdetail_head_bg {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		height: 640rpx;
-	}
-
 	.docdetail_head_body {
 		position: absolute;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		height: 640rpx;
+		height: 480rpx;
 	}
 
 	.headerbody_card {
@@ -154,7 +161,8 @@
 		display: flex;
 		flex-direction: column;
 		height: 480rpx;
-		margin: 128rpx 32rpx 32rpx;
+		min-height: 480rpx;
+		margin: 32rpx 32rpx 32rpx;
 		border-radius: 8rpx;
 	}
 
@@ -184,7 +192,14 @@
 		color: #9FA4AE;
 		font-size: 24rpx;
 		flex-direction: row;
-
+	}
+	
+	.docdet-item-bottom {
+		display: flex;
+		margin-top: 24rpx;
+		color: #9FA4AE;
+		font-size: 24rpx;
+		flex-direction: row;
 	}
 
 	.docdet-item-cell {

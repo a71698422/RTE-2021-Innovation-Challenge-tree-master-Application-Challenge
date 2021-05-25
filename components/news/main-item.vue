@@ -15,7 +15,7 @@
 				<view class="list-item-docexpert">
 					问诊量：{{item.docconsultation}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;平均回复时间：{{item.docresponse}}分钟
 				</view>
-				<view class="list-item-footprice mt-16">
+				<view class="list-item-footprice m-20">
 					在线咨询 <text class="ml-10 text-through">￥{{item.docfootprice}}</text><text class="text-green">￥1</text>
 				</view>
 			</view>
@@ -67,8 +67,9 @@
 
 	.list-item-avatar {
 		margin: 16rpx;
-		width: 128rpx;
-		height: 128rpx;
+		width: 104rpx;
+		min-width: 104rpx;
+		height: 104rpx;
 		border-radius: 64rpx;
 	}
 	

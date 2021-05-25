@@ -1,12 +1,10 @@
 <template>
 	<view>
 		<view class="flex align-center bg-white" @click="openMineData()">
-			<image src="@/static/icons/icon_gongyingshang.png" style="width: 128rpx;height: 128rpx;"
+			<image src="@/static/icons/icon_assistanceavatar.png" style="width: 128rpx;height: 128rpx;"
 				class="rounded16 m-24"></image>
 			<view class="flex flex-column flex-1 px-2 align-start">
-				<text class="font-md font-weight-bold text-dark">戴春花</text>
-				<text class="font-28 text-main border-main">体验版VIP</text>
-				<text class="font-24 text-main">有效期至2021-05-21</text>
+				<text class="font-md font-weight-bold text-dark">郑文文</text>
 			</view>
 		</view>
 
@@ -14,7 +12,7 @@
 			<uni-list class="text-left" :border="false">
 				<uni-list-item showArrow="true" title="设置" showExtraIcon="true" to="../wallet-main/wallet-main">
 					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_setting.png"></image>
+						<image class="slot-image" src="@/static/iconfont/icon_assetting1.png"></image>
 					</template>
 				</uni-list-item>
 			</uni-list>
@@ -22,29 +20,9 @@
 		
 		<view class="flex align-center mt-32">
 			<uni-list class="text-left" :border="false">
-				<uni-list-item showArrow="true" title="电话客服" showExtraIcon="true">
+				<uni-list-item showArrow="true" title="问诊指南" showExtraIcon="true">
 					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_service.png"></image>
-					</template>
-				</uni-list-item>
-				<uni-list-item showArrow="true" title="帮助中心" showExtraIcon="true">
-					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_helpless.png"></image>
-					</template>
-				</uni-list-item>
-				<uni-list-item showArrow="true" title="更新公告" showExtraIcon="true">
-					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_announcement.png"></image>
-					</template>
-				</uni-list-item>
-			</uni-list>
-		</view>
-		
-		<view class="flex align-center mt-32">
-			<uni-list class="text-left" :border="false">
-				<uni-list-item showArrow="true" title="关于我们" showExtraIcon="true">
-					<template slot="header">
-						<image class="slot-image" src="@/static/iconfont/icon_aboutus.png"></image>
+						<image class="slot-image" src="@/static/iconfont/icon_assetting2.png"></image>
 					</template>
 				</uni-list-item>
 			</uni-list>
@@ -108,8 +86,8 @@
 		display: block;
 		/* #endif */
 		margin-right: 32rpx;
-		margin-top: 8rpx;
-		width: 40rpx;
-		height: 40rpx;
+		margin-top: 4rpx;
+		width: 48rpx;
+		height: 51rpx;
 	}
 </style>

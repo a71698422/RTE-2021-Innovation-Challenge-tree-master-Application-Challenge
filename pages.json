@@ -23,7 +23,7 @@
 		{
 			"path": "pages/index/assistance",
 			"style": {
-				"navigationBarTitleText": "assistance"
+				"navigationBarTitleText": "设置"
 			}
 		},
 		{

@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class="search-header">
-			<uni-search-bar @confirm="search" @input="input" @cancel="cancel" class="search-body" bgColor="#FFFFFF" />
+			<uni-search-bar @confirm="search" @input="input" @cancel="cancel" class="search-body" bgColor="#F7F8FA" />
 		</view>
 		<view class="uni-list">
 			<block v-for="(value, index) in lawyerlist" :key="index">
@@ -21,7 +21,7 @@
 			dochospital: "上海市第一人民医院",
 			docpartment: "耳鼻喉科",
 			doctag: "三甲",
-			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
 			docconsultation: 945,
 			docresponse: 45,
 			docfootprice: 35
@@ -59,6 +59,7 @@
 		data() {
 			return {
 				titleString: "医生列表",
+				searchVal: '',
 				lawyerlist: [],
 				reload: false,
 				status: 'more',
@@ -81,6 +82,21 @@
 			this.getList();
 		},
 		methods: {
+			search(res) {
+				uni.showToast({
+					title: '搜索：' + res.value,
+					icon: 'none'
+				})
+			},
+			input(res) {
+				this.searchVal = res.value
+			},
+			cancel(res) {
+				uni.showToast({
+					title: '点击取消，输入值为：' + res.value,
+					icon: 'none'
+				})
+			},
 			getList() {
 				if(this.reload){
 					this.lawyerlist = lawyerdemo;
@@ -135,7 +151,7 @@
 	}
 
 	.search-body {
-		margin: 8rpx;
+		margin: 4rpx;
 		background-color: #F7F8FA;
 	}
 

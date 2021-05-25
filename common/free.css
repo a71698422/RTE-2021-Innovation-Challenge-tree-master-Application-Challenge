@@ -659,29 +659,42 @@
 }
 
 /* #endif */
-.mr-1 {
-	margin-right: 10rpx;
-}
 
 .mr-2 {
-	margin-right: 20rpx;
-}
-
-.mr-3 {
-	margin-right: 30rpx;
+	margin-right: 2rpx;
 }
 
 .mr-4 {
+	margin-right: 4rpx;
+}
+
+.mr-8 {
+	margin-right: 8rpx;
+}
+
+.mr-10 {
+	margin-right: 10rpx;
+}
+
+.mr-20 {
+	margin-right: 20rpx;
+}
+
+.mr-30 {
+	margin-right: 30rpx;
+}
+
+.mr-40 {
 	margin-right: 40rpx;
 }
 
-.mr-5 {
+.mr-50 {
 	margin-right: 50rpx;
 }
-.mr-6 {
+.mr-60 {
 	margin-right: 80rpx;
 }
-.mr-8 {
+.mr-80 {
 	margin-right: 80rpx;
 }
 
@@ -750,6 +763,11 @@
 }
 
 /* #endif */
+.mx-4 {
+	margin-left: 4rpx;
+	margin-right: 4rpx;
+}
+
 .mx-8 {
 	margin-left: 8rpx;
 	margin-right: 8rpx;
