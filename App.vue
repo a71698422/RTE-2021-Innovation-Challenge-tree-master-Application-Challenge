@@ -1,7 +1,17 @@
 <script>
+	// #ifdef APP-PLUS
+	import APPUpdate from '@/plugins/APPUpdate';
+	// #endif
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			console.log('App Launch');
+			// #ifdef APP-PLUS
+			let platform = uni.getSystemInfoSync().platform;
+			if(platform==='android'){
+				APPUpdate();
+				console.log(platform);
+			}
+			// #endif
 		},
 		onShow: function() {
 			console.log('App Show')
