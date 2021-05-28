@@ -4,13 +4,12 @@
 			"path": "pages/index/main",
 			"style": {
 				"navigationBarTitleText": "医生列表",
-				"enablePullDownRefresh": false,
+				"enablePullDownRefresh": true,
 				"navigationBarBackgroundColor": "#F7F8FA",
 				"backgroundColor": "#F7F8FA",
 				"app-plus": {
 					"background": "#F7F8FA"
-				},
-				"enablePullDownRefresh": true
+				}
 			}
 			
 		},
@@ -67,6 +66,20 @@
             {
                 "navigationBarTitleText": "我的问诊",
                 "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/consultation/picconsultation",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图文问诊",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
             }
             
         }

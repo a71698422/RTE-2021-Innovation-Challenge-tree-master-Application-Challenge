@@ -42,7 +42,7 @@
 		</view>
 		<view class="flex align-center">
 			<uni-list class="text-left" :border="false">
-				<uni-list-item showArrow="true" showExtraIcon="true">
+				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation">
 					<view slot="body" class="slot-box">
 						<view class="docdet-item__content">
 							<text class="docdet-item__content-title">图文问诊</text>
@@ -54,7 +54,7 @@
 						<image class="slot-image" src="@/static/iconfont/icon_docdet01.png"></image>
 					</template>
 				</uni-list-item>
-				<uni-list-item showArrow="true" showExtraIcon="true">
+				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation">
 					<view slot="body" class="slot-box">
 						<view class="docdet-item__content">
 							<view><text class="docdet-item__content-title">电话问诊</text><text
@@ -67,7 +67,7 @@
 						<image class="slot-image" src="@/static/iconfont/icon_docdet02.png"></image>
 					</template>
 				</uni-list-item>
-				<uni-list-item showArrow="true" showExtraIcon="true">
+				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation">
 					<view slot="body" class="slot-box">
 						<view class="docdet-item__content">
 							<view><text class="docdet-item__content-title">视频问诊</text><text
@@ -99,7 +99,7 @@
 		onLoad(e) {
 			// 初始化
 			this.detailData = JSON.parse(e.detailData);
-			console.log(this.sciencelist);
+			console.log(this.detailData);
 		},
 		methods: {
 			// 返回上一步

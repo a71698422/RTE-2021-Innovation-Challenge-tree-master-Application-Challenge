@@ -3,7 +3,7 @@
 		<view class="search-header">
 			<uni-search-bar @confirm="search" @input="input" @cancel="cancel" class="search-body" bgColor="#F7F8FA" />
 		</view>
-		<view class="uni-list">
+		<view class="uni-list margintop-bar">
 			<block v-for="(value, index) in lawyerlist" :key="index">
 				<main-item :item="value" :index="index"></main-item>
 			</block>
@@ -126,7 +126,7 @@
 						});
 					}
 				}
-			},
+			}
 		},
 	}
 </script>
@@ -142,10 +142,10 @@
 	}
 
 	.search-header {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		padding: 4rpx;
+		width: 100%;
+		position: fixed;
+		z-index: 996;
+		padding:0rpx 4rpx;
 		font-size: 28rpx;
 		background-color: #F7F8FA;
 	}
@@ -155,51 +155,7 @@
 		background-color: #F7F8FA;
 	}
 
-	.width-20 {
-		width: 20%;
-		max-width: 28%;
-	}
-
-	.example-body {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: column;
-		flex-wrap: wrap;
-		justify-content: center;
-		border-radius: 8rpx;
-		margin: 20rpx;
-		font-size: 14px;
-		background-color: #ffffff;
-	}
-
-	.slot-image {
-		/* #ifndef APP-NVUE */
-		display: block;
-		/* #endif */
-		margin-right: 32rpx;
-		margin-top: 8rpx;
-		width: 40rpx;
-		height: 40rpx;
-	}
-
-	.slot-circle-image {
-		/* #ifndef APP-NVUE */
-		display: block;
-		/* #endif */
-		background-color: #FFEFE7;
-		padding: 16rpx;
-		border-radius: 32rpx;
-		margin: 4rpx 32rpx 4rpx 4rpx;
-		width: 64rpx;
-		height: 64rpx;
-	}
-
-	.border-vertical {
-		border-top-width: 1rpx;
-		border-top-style: solid;
-		border-top-color: #FFFFFF;
-		border-bottom-style: solid;
-		border-bottom-color: #FFFFFF;
+	.margintop-bar {
+		margin-top: 110rpx;
 	}
 </style>
