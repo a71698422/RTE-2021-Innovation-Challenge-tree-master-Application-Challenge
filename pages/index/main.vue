@@ -21,7 +21,7 @@
 			dochospital: "上海市第一人民医院",
 			docpartment: "耳鼻喉科",
 			doctag: "三甲",
-			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docexpert: "擅长：过敏性鼻炎；慢性鼻炎；过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性炎；",
 			docconsultation: 945,
 			docresponse: 45,
 			docfootprice: 35
@@ -33,7 +33,7 @@
 			dochospital: "上海市第一人民医院",
 			docpartment: "耳鼻喉科",
 			doctag: "三甲",
-			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docexpert: "擅长：过敏性鼻炎；慢性鼻炎；过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性炎；",
 			docconsultation: 945,
 			docresponse: 45,
 			docfootprice: 35
@@ -45,7 +45,7 @@
 			dochospital: "上海市第一人民医院",
 			docpartment: "耳鼻喉科",
 			doctag: "三甲",
-			docexpert: "擅长：过敏性鼻炎；慢性炎鼻窦炎；鼻息肉；鼻息肉；",
+			docexpert: "擅长：过敏性鼻炎；慢性鼻炎；过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性鼻炎，过敏性鼻炎，慢性炎；",
 			docconsultation: 945,
 			docresponse: 45,
 			docfootprice: 35
