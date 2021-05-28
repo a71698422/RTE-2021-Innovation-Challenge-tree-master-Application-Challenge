@@ -22,16 +22,25 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-flex">
+			<button type="primary" class="piccon_button" @click="piconextAction"><text class="font-md ml-2">下一步</text></button>
+		</view>
 	</view>
 </template>
 
 <script>
 	import permision from "@/common/permission.js"
-	import uploadImage from '@/components/common/upload-image.vue';
+	var sourceType = [
+		['camera'],
+		['album'],
+		['camera', 'album']
+	]
+	var sizeType = [
+		['compressed'],
+		['original'],
+		['compressed', 'original']
+	]
 	export default {
-		components: {
-			uploadImage
-		},
 		data() {
 			return {
 				content: "",
@@ -167,7 +176,10 @@
 				}
 			
 				return status;
-			}
+			},
+			piconextAction() {
+				console.log("piconextAction");
+			},
 		}
 	}
 </script>
@@ -204,5 +216,16 @@
 		padding: 3%;
 		background-color: #F7F8FA;
 		font-size: 28rpx !important;
+	}
+	
+	.piccon_button {
+		width: 92%;
+		padding: 0 72rpx;
+		margin: 64rpx 32rpx;
+		font-size: 48rpx;
+		line-height: 1.8;
+		border-radius: 8rpx;
+		border-width: 0rpx;
+		background-image: linear-gradient(90deg,#07C193, #3EAAB4);
 	}
 </style>
