@@ -179,6 +179,9 @@
 			},
 			piconextAction() {
 				console.log("piconextAction");
+				uni.navigateTo({
+					url: 'picconsultation02?userid=12',
+				});
 			},
 		}
 	}

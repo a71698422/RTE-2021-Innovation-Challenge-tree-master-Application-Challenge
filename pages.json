@@ -11,7 +11,7 @@
 					"background": "#F7F8FA"
 				}
 			}
-			
+
 		},
 		{
 			"path": "pages/index/index",
@@ -48,42 +48,48 @@
 			"style": {
 				"navigationBarTitleText": "StringUid"
 			}
-		}
-	    ,{
-            "path" : "pages/index/doc_detail/doc_detail",
-            "style" :                                                                                    
-            {
+		}, {
+			"path": "pages/index/doc_detail/doc_detail",
+			"style": {
 				"app-plus": {
 					"titleNView": false
 				},
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/customer-consultation/customer-consultation",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的问诊",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/consultation/picconsultation",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "图文问诊",
-                "enablePullDownRefresh": false,
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/customer-consultation/customer-consultation",
+			"style": {
+				"navigationBarTitleText": "我的问诊",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation01",
+			"style": {
+				"navigationBarTitleText": "图文问诊",
+				"enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#F7F8FA",
 				"backgroundColor": "#F7F8FA",
 				"app-plus": {
 					"background": "#F7F8FA"
 				}
-            }
-            
-        }
-    ],
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation02",
+			"style": {
+				"navigationBarTitleText": "图文问诊",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

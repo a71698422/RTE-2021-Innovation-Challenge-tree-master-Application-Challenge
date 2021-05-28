@@ -118,7 +118,7 @@
 	position: absolute;
 	width: calc(var(--inner-radius) * 2 * 2);
 	height: calc(var(--inner-radius) * 2 * 2);
-	border: 2px solid #FF9051;
+	border: 2px solid #25B4A5;
 	border-radius: 50%;
 	animation: pulse 2s ease-out infinite;
 }
@@ -854,7 +854,7 @@
 .mini-button {
 	padding: 0 72rpx;
 	margin-top: 20rpx;
-	background-color: #FF9051 !important;
+	background-color: #25B4A5 !important;
 	font-size: 48rpx;
 	line-height: 1.8;
 	border-radius: 48rpx;
@@ -863,7 +863,7 @@
 .mini-button-smaller {
 	width: 96rpx;
 	padding: 8rpx 4px;
-	background-color: #FF9051;
+	background-color: #25B4A5;
 	font-size: 36rpx;
 	line-height: 1.2;
 	color: #FFFFFF;
@@ -1359,7 +1359,6 @@
 
 .text-orange {
 	color: #FF8D1A !important;
-	;
 }
 
 .text-yellow {
@@ -1431,6 +1430,10 @@
 	color: #808080;
 }
 
+.text-dark-light {
+	color: #9FA4AE !important;
+}
+
 /* 浅灰色 */
 .text-light-muted {
 	color: #A9A5A0;
@@ -1447,6 +1450,10 @@
 /* 背景颜色 */
 .bg-muted {
 	background-color: #F7F8FA;
+}
+
+.bg-dark-muted {
+	background-color: #EDEEEF !important;
 }
 
 .bg-primary {
@@ -1522,14 +1529,14 @@
 }
 
 .bg-blueviolet {
-	background: #FF9051 !important;
+	background: #25B4A5 !important;
 }
 
 /* 边框 */
 .border-main {
 	border-width: 1rpx;
 	border-style: solid;
-	border-color: #FF9051;
+	border-color: #25B4A5;
 }
 
 .border-white {
@@ -1641,7 +1648,7 @@
 }
 
 .border-main {
-	border-color: #FF9051;
+	border-color: #25B4A5;
 	border-width: 2rpx;
 	border-style: solid;
 }

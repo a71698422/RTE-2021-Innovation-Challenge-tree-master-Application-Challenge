@@ -76,7 +76,7 @@
 	.border-main {
 		padding:0rpx 16rpx;
 		border-radius: 16rpx;
-		border-color: #FF9051;
+		border-color: #25B4A5;
 		border-width: 2rpx;
 		border-style: solid;
 	}

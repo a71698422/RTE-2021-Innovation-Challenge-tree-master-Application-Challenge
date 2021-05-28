@@ -18,7 +18,7 @@
 				<view class="rowBox m-2">
 					<view class="sliderBox">
 						<RangeSlider :width="slideWidth" :height="slideHeight" :blockSize="slideBlockSize" :min="slideMin" :max="slideMax"
-						 :values="rangeValues" :step="step" :liveMode="isLiveMode" :activeColor="'#FF9051'" @rangechange="onRangeChange">
+						 :values="rangeValues" :step="step" :liveMode="isLiveMode" :activeColor="'#25B4A5'" @rangechange="onRangeChange">
 							<view slot="minBlock" class="range-slider-block"></view>
 							<!-- 左边滑块的内容 -->
 							<view slot="maxBlock" class="range-slider-block"></view>
@@ -228,7 +228,7 @@
 	.uni-location-button {
 		flex: 1;
 		border-radius: 50px;
-		color: #FF9051;
+		color: #25B4A5;
 		font-size: 16px;
 		background-color: #F5F5F5;
 	}

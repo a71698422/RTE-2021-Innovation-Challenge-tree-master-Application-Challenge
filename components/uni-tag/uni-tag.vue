@@ -128,7 +128,7 @@
 	}
 
 	.uni-tag--default {
-		color: $uni-text-color;
+		color: $uni-text-color-grey;
 		font-size: $uni-font-size-sm;
 	}
 
