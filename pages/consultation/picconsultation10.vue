@@ -46,10 +46,27 @@
 				</view>
 			</view>
 		</view>
+		<view class="uni-flex">
+			<text class="piccon_section">上午</text>
+		</view>
+		<view>
+			<uni-list :border="false">
+				<uni-list-item v-for="(value, index) in mortimesArray" :key="index" :title="value" clickable @click="selectamTime(index)"/>
+			</uni-list>
+		</view>
+		<view class="uni-flex">
+			<text class="piccon_section">下午</text>
+		</view>
+		<view>
+			<uni-list :border="false">
+				<uni-list-item v-for="(value, index) in afttimesArray" :key="index" :title="value" clickable @click="selectpmTime(index)"/>
+			</uni-list>
+		</view>
 	</view>
 </template>
 
 <script>
+	import Calendar from '@/components/uni-calendar/util.js';
 	export default {
 		components: {
 
@@ -60,22 +77,29 @@
 				weeks: [],
 				calendar: {},
 				nowDate: '',
-				aniMaskShow: false
+				aniMaskShow: false,
+				mortimesArray :[],
+				afttimesArray :[],
 			}
+		},
+		computed:{
+			
 		},
 		onLoad() {
 			// 获取日历方法实例
-			// this.cale = new Calendar({
-			// 	// date: new Date(),
-			// 	selected: this.selected,
-			// 	startDate: this.startDate,
-			// 	endDate: this.endDate,
-			// 	range: this.range,
-			// })
+			this.cale = new Calendar({
+				// date: new Date(),
+				selected: this.selected,
+				startDate: this.startDate,
+				endDate: this.endDate,
+				range: this.range,
+			})
 			// 选中某一天
 			// this.cale.setDate(this.date)
-			// this.init(this.date)
+			this.init(this.date)
 			// this.setDay
+			this.getMorArray(6);
+			this.getAfterArray(6);
 		},
 		methods: {
 			// 返回上一步
@@ -92,7 +116,29 @@
 				this.cale.setDate(date)
 				this.weeks = this.cale.weeks
 				this.nowDate = this.calendar = this.cale.getInfo(date)
+				console.log(this.weeks)
+				console.log(this.nowDate)
 			},
+			getMorArray(count) {
+				let endtime=12;
+				for(let i=0;i<count;i++){
+					let mortime=endtime-1+":00-"+(endtime--)+":00";
+					this.mortimesArray.unshift(mortime)
+				}
+			},
+			getAfterArray(count) {
+				let starttime=12;
+				for(let i=0;i<count;i++){
+					let afttime=starttime+":00-"+(++starttime)+":00";
+					this.afttimesArray.push(afttime)
+				}
+			},
+			selectamTime(index) {
+				console.log(this.mortimesArray[index]);
+			},
+			selectpmTime(index) {
+				console.log(this.afttimesArray[index]);
+			}
 		}
 	}
 </script>
@@ -202,5 +248,13 @@
 		font-size: 32rpx;
 		flex: 1;
 		line-height: 1;
+	}
+	
+	.piccon_section {
+		margin: 24rpx 32rpx;
+		font-size: 24rpx;
+		color: #BFC0C8;
+		letter-spacing: 2rpx;
+		font-family: "SimHei";
 	}
 </style>
