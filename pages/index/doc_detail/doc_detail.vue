@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<uni-nav-bar :status-bar="true" backgroundColor="#07C193" color="#ffffff" left-icon="back" :border="false"
-			@clickLeft="goBack">
+			@clickLeft="goBackAction">
 		</uni-nav-bar>
 		<view class="docdetail_header">
 			<view class="docdetail_head_bg">
@@ -54,7 +54,7 @@
 						<image class="slot-image" src="@/static/iconfont/icon_docdet01.png"></image>
 					</template>
 				</uni-list-item>
-				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation01">
+				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation10">
 					<view slot="body" class="slot-box">
 						<view class="docdet-item__content">
 							<view><text class="docdet-item__content-title">电话问诊</text><text
@@ -67,7 +67,7 @@
 						<image class="slot-image" src="@/static/iconfont/icon_docdet02.png"></image>
 					</template>
 				</uni-list-item>
-				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation01">
+				<uni-list-item showArrow="true" showExtraIcon="true" to="../../consultation/picconsultation10">
 					<view slot="body" class="slot-box">
 						<view class="docdet-item__content">
 							<view><text class="docdet-item__content-title">视频问诊</text><text
@@ -103,7 +103,7 @@
 		},
 		methods: {
 			// 返回上一步
-			goBack() {
+			goBackAction() {
 				uni.navigateBack({
 					delta: 1
 				});
@@ -193,7 +193,7 @@
 		font-size: 24rpx;
 		flex-direction: row;
 	}
-	
+
 	.docdet-item-bottom {
 		display: flex;
 		margin-top: 24rpx;

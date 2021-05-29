@@ -89,7 +89,18 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/consultation/picconsultation10",
+            "style" :                                                                                    
+            {
+                "app-plus": {
+                	"titleNView": false
+                },
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

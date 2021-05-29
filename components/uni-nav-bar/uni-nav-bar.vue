@@ -144,6 +144,11 @@
 		font-size: $uni-font-size-lg;
 		/* #endif */
 	}
+	
+	.uni-nav-bar-note {
+		color: #BFC0C8;
+		font-size: 20rpx;
+	}
 
 	.uni-nav-bar-right-text {
 		font-size: $uni-font-size-base;
@@ -162,6 +167,15 @@
 		/* #endif */
 		align-items: center;
 		flex-direction: row;
+		// background-color: #FFFFFF;
+	}
+	
+	.uni-navbar__column_view {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		align-items: center;
+		flex-direction: column;
 		// background-color: #FFFFFF;
 	}
 
