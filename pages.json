@@ -100,6 +100,34 @@
             }
             
         }
+        ,{
+            "path" : "pages/consultation/picconsultation11",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "问题描述",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#F7F8FA",
+                "backgroundColor": "#F7F8FA",
+                "app-plus": {
+                	"background": "#F7F8FA"
+                }
+            }
+            
+        }
+        ,{
+            "path" : "pages/consultation/picconsultation12",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "患者信息",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

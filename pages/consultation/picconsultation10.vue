@@ -135,9 +135,15 @@
 			},
 			selectamTime(index) {
 				console.log(this.mortimesArray[index]);
+				uni.navigateTo({
+					url: 'picconsultation11'
+				});
 			},
 			selectpmTime(index) {
 				console.log(this.afttimesArray[index]);
+				uni.navigateTo({
+					url: 'picconsultation11'
+				});
 			}
 		}
 	}
