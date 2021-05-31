@@ -8,21 +8,32 @@
 				<text class="header_text">医疗 Demo</text>
 			</view>
 			<!-- 主体表单 -->
-			<view class="main">
+			<view class="login_main">
 				<text class="header_tips">用户名/room</text>
-				<input class="main_input" type="number" v-model="username" placeholder="请输入手机号码" />
+				<view :class="'login_user ' + nameFocus">
+					<input type="text" v-model="username" placeholder="用户名" placeholder-style="color:rgb(173,185,193)"
+						@focus="onFocusName" @blur="onBlurName">
+				</view>
+				<text class="header_tips">密码/Key</text>
+				<view :class="'login_pwd ' + psdFocus">
+					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)" 
+					 @focus="onFocusPsd" @blur="onBlurPsd">
+				</view>
+			</view>
+			
+
+			<view class="login_btn">
+				<button hover-class="btn_hover" @tap="startLogin">登录</button>
 			</view>
 
-
-			<wButton class="wbutton" text="登 录" :rotate="isRotate" @click="startLogin"></wButton>
-
-
-
-			<!-- 底部信息 -->
+			<!-- 注册信息 -->
 			<view class="footer">
-				<navigator url="forget" open-type="navigate">找回密码</navigator>
-				<text>|</text>
 				<navigator url="register" open-type="navigate">注册账号</navigator>
+			</view>
+			
+			<!-- 底部信息 -->
+			<view class="login_bottom">
+				<text>本产品由环信提供  当前版本：1.4.1</text>
 			</view>
 		</view>
 	</view>
@@ -30,8 +41,6 @@
 
 <script>
 	let _this;
-	import wInput from '../../components/watch-login/watch-input.vue' //input
-	import wButton from '../../components/watch-login/watch-button.vue' //button
 
 	export default {
 		data() {
@@ -41,19 +50,41 @@
 				phoneData: '', //用户/电话
 				passData: '', //密码
 				isRotate: false, //是否加载旋转
-				isFocus: true ,// 是否聚焦
-				username:"",
+				isFocus: true, // 是否聚焦
+				username: "",
+				userpass: "",
+				psdFocus: "",
+				nameFocus: "",
 			};
 		},
 		components: {
-			wInput,
-			wButton,
+			
 		},
 		mounted() {
 			_this = this;
 			//this.isLogin();
 		},
 		methods: {
+			onFocusPsd: function() {
+				this.setData({
+					psdFocus: 'psdFocus'
+				});
+			},
+			onBlurPsd: function() {
+				this.setData({
+					psdFocus: ''
+				});
+			},
+			onFocusName: function() {
+				this.setData({
+					nameFocus: 'nameFocus'
+				});
+			},
+			onBlurName: function() {
+				this.setData({
+					nameFocus: ''
+				});
+			},
 			isLogin() {
 				//判断缓存中是否登录过，直接登录
 				// try {
@@ -170,6 +201,5 @@
 </script>
 
 <style>
-	@import url("../../components/watch-login/css/icon.css");
 	@import url("./css/main.css");
 </style>

@@ -51,9 +51,9 @@
 					title: '请先登录',
 					icon: 'none'
 				});
-				// return uni.navigateTo({
-				// 	url: '../login/login'
-				// });
+				return uni.navigateTo({
+					url: '../login/login'
+				});
 			}
 		},
 		methods: {
