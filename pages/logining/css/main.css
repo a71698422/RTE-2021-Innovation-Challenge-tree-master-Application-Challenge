@@ -7,9 +7,12 @@
 
 /* 头部 logo */
 .header {
-	display: flex;
-	margin: 256rpx 128rpx 128rpx;
-	flex-direction: row;
+	width: 320rpx;
+	height: 128rpx;
+	margin-top: 128rpx;
+	margin-bottom: 72rpx;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .header image {
@@ -17,34 +20,12 @@
 	height: 66rpx;
 }
 
-.header_line {
-	margin-left: 24rpx;
-	margin-right: 24rpx;
-	width: 2rpx;
-	height: 70rpx;
-	background-color: #00C58F;
-}
-
-.header_text {
-	color: #00C58F;
-	font-size: 42rpx;
-	line-height: 66rpx;
-}
-
 /* 主体 */
 .main {
 	display: flex;
 	flex-direction: column;
-	padding-left: 48rpx;
-	padding-right: 48rpx;
-}
-
-.header_tips {
-	text-align: start;
-	font-size: 28rpx;
-	margin: 24rpx 32rpx;
-	font-size: 32rpx;
-	color: #9FA4AE;
+	padding-left: 70rpx;
+	padding-right: 70rpx;
 }
 
 .tips {

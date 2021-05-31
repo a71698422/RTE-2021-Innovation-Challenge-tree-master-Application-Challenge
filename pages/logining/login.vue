@@ -3,20 +3,27 @@
 		<view class="content">
 			<!-- 头部logo -->
 			<view class="header">
-				<image src="@/static/icons/icon_showlog.png"></image>
-				<text class="header_line"></text>
-				<text class="header_text">医疗 Demo</text>
+				<image :src="logoImage"></image>
 			</view>
 			<!-- 主体表单 -->
 			<view class="main">
-				<text class="header_tips">用户名/room</text>
-				<input class="main_input" type="number" v-model="username" placeholder="请输入手机号码" />
+				<wInput v-model="phoneData" type="text" maxlength="11" placeholder="用户名/电话" :focus="isFocus"></wInput>
+				<wInput v-model="passData" type="password" maxlength="11" placeholder="密码"></wInput>
 			</view>
-
-
 			<wButton class="wbutton" text="登 录" :rotate="isRotate" @click="startLogin"></wButton>
 
-
+			<!-- 其他登录 -->
+			<view class="other_login cuIcon">
+				<view class="login_icon">
+					<view class="cuIcon-weixin" @tap="login_weixin"></view>
+				</view>
+				<view class="login_icon">
+					<view class="cuIcon-weibo" @tap="login_weibo"></view>
+				</view>
+				<view class="login_icon">
+					<view class="cuIcon-github" @tap="login_github"></view>
+				</view>
+			</view>
 
 			<!-- 底部信息 -->
 			<view class="footer">
@@ -41,8 +48,7 @@
 				phoneData: '', //用户/电话
 				passData: '', //密码
 				isRotate: false, //是否加载旋转
-				isFocus: true ,// 是否聚焦
-				username:"",
+				isFocus: true // 是否聚焦
 			};
 		},
 		components: {
