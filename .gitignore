@@ -13,7 +13,7 @@ node_modules/
 unpackage/cache/
 unpackage/dist/
 unpackage/release/
-unpackage/cache/
+unpackage/debug/
 
 # python
 *.pyc

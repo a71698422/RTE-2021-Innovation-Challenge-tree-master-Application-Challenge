@@ -12,94 +12,65 @@
 		<view class="uni-calendar__box">
 			<view class="uni-calendar__title-bg">
 				<text class="uni-calendar__title-line"></text>
-				<text class="uni-calendar__title-text">十月</text>
+				<text class="uni-calendar__title-text">{{nowMonth}}</text>
 				<text class="uni-calendar__title-line"></text>
 			</view>
 			<view class="uni-calendar__weeks">
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">日</text>
-					<text class="uni-calendar__weeks-day-text">21</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">一</text>
-					<text class="uni-calendar__weeks-day-text">22</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">二</text>
-					<text class="uni-calendar__weeks-day-text">23</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">三</text>
-					<text class="uni-calendar__weeks-day-text">24</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">四</text>
-					<text class="uni-calendar__weeks-day-text">25</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">五</text>
-					<text class="uni-calendar__weeks-day-text">26</text>
-				</view>
-				<view class="uni-calendar__weeks-day">
-					<text class="uni-calendar__weeks-day-text">六</text>
-					<text class="uni-calendar__weeks-day-text">21</text>
-				</view>
+				<view class="uni-calendar__weeks-day" v-for="(value, index) in applydayArray"
+					@click="applySelectAction(index)">
+					<text class="uni-calendar__weeks-day-text">{{value.sweek}}</text>
+				<text
+					:class="applyIndex === index?'uni-calendar__weeks-day-sbox':'uni-calendar__weeks-day-box'">{{value.sday}}</text>
 			</view>
 		</view>
-		<view class="uni-flex">
-			<text class="piccon_section">上午</text>
-		</view>
-		<view>
-			<uni-list :border="false">
-				<uni-list-item v-for="(value, index) in mortimesArray" :key="index" :title="value" clickable @click="selectamTime(index)"/>
-			</uni-list>
-		</view>
-		<view class="uni-flex">
-			<text class="piccon_section">下午</text>
-		</view>
-		<view>
-			<uni-list :border="false">
-				<uni-list-item v-for="(value, index) in afttimesArray" :key="index" :title="value" clickable @click="selectpmTime(index)"/>
-			</uni-list>
-		</view>
+	</view>
+	<view class="uni-flex">
+		<text class="piccon_section">上午</text>
+	</view>
+	<view>
+		<uni-list :border="false">
+			<uni-list-item v-for="(value, index) in mortimesArray" :key="index" :title="value" clickable
+				@click="selectamTime(index)" />
+		</uni-list>
+	</view>
+	<view class="uni-flex">
+		<text class="piccon_section">下午</text>
+	</view>
+	<view>
+		<uni-list :border="false">
+			<uni-list-item v-for="(value, index) in afttimesArray" :key="index" :title="value" clickable
+				@click="selectpmTime(index)" />
+		</uni-list>
+	</view>
 	</view>
 </template>
 
 <script>
-	import Calendar from '@/components/uni-calendar/util.js';
+	var solarMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+	var solarWeeks = ['日', '一', '二', '三', '四', '五', '六']
+	var solarMonths = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
 	export default {
 		components: {
 
 		},
 		data() {
 			return {
-				show: false,
-				weeks: [],
-				calendar: {},
-				nowDate: '',
-				aniMaskShow: false,
-				mortimesArray :[],
-				afttimesArray :[],
+				nowMonth: '一月',
+				applyIndex: 0,
+				applydayArray: [],
+				mortimesArray: [],
+				afttimesArray: [],
 			}
 		},
-		computed:{
-			
+		computed: {
+
 		},
 		onLoad() {
 			// 获取日历方法实例
-			this.cale = new Calendar({
-				// date: new Date(),
-				selected: this.selected,
-				startDate: this.startDate,
-				endDate: this.endDate,
-				range: this.range,
-			})
-			// 选中某一天
-			// this.cale.setDate(this.date)
-			this.init(this.date)
-			// this.setDay
+			this.getApplyDay(6);
 			this.getMorArray(6);
 			this.getAfterArray(6);
+
 		},
 		methods: {
 			// 返回上一步
@@ -112,24 +83,44 @@
 			 * 初始化日期显示
 			 * @param {Object} date
 			 */
-			init(date) {
-				this.cale.setDate(date)
-				this.weeks = this.cale.weeks
-				this.nowDate = this.calendar = this.cale.getInfo(date)
-				console.log(this.weeks)
-				console.log(this.nowDate)
+			getApplyDay(count) {
+				const date = new Date();
+				let curmonth = date.getMonth();
+				this.nowMonth = solarMonths[curmonth];
+				let curday = date.getDate();
+				let curweek = date.getDay();
+				let monthdays = solarMonth[curmonth];
+				for (let i = 0; i < count + 1; i++) {
+					curweek = curweek < 7 ? curweek : curweek - 7;
+					if (curday > monthdays) {
+						curday = curday - monthdays;
+						curmonth = curmonth + 1;
+					}
+					let applyDay = {
+						"sweek": solarWeeks[curweek++],
+						"sday": curday++,
+						"smonth": curmonth 
+					};
+					this.applydayArray.push(applyDay);
+				}
+				console.log(this.applydayArray);
+			},
+			applySelectAction(index) {
+				this.applyIndex = index;
+				this.nowMonth = solarMonths[this.applydayArray[index].smonth];
+				console.log("预约时间为:" + (this.applydayArray[index].smonth+1) + "月" + this.applydayArray[index].sday + "日");
 			},
 			getMorArray(count) {
-				let endtime=12;
-				for(let i=0;i<count;i++){
-					let mortime=endtime-1+":00-"+(endtime--)+":00";
+				let endtime = 12;
+				for (let i = 0; i < count; i++) {
+					let mortime = endtime - 1 + ":00-" + (endtime--) + ":00";
 					this.mortimesArray.unshift(mortime)
 				}
 			},
 			getAfterArray(count) {
-				let starttime=12;
-				for(let i=0;i<count;i++){
-					let afttime=starttime+":00-"+(++starttime)+":00";
+				let starttime = 12;
+				for (let i = 0; i < count; i++) {
+					let afttime = starttime + ":00-" + (++starttime) + ":00";
 					this.afttimesArray.push(afttime)
 				}
 			},
@@ -206,7 +197,7 @@
 		/* #endif */
 		flex-direction: row;
 		margin-top: 16rpx;
-		margin-bottom: 32rpx;
+		margin-bottom: 48rpx;
 	}
 
 	.uni-calendar__weeks-item {
@@ -225,10 +216,23 @@
 	}
 
 	.uni-calendar__weeks-day-text {
-		font-size: 14px;
+		font-size: 24rpx;
+	}
+
+	.uni-calendar__weeks-day-box {
+		color: #0f0f0f;
+		background-color: #FFFFFF;
+	}
+
+	.uni-calendar__weeks-day-sbox {
+		color: #FFFFFF;
+		width: 48rpx;
+		height: 64rpx;
+		background-color: #1DB8A0;
 	}
 
 	.uni-calendar__box {
+		margin-top: 32rpx;
 		display: flex;
 		flex-direction: column;
 		position: relative;
@@ -255,7 +259,7 @@
 		flex: 1;
 		line-height: 1;
 	}
-	
+
 	.piccon_section {
 		margin: 24rpx 32rpx;
 		font-size: 24rpx;

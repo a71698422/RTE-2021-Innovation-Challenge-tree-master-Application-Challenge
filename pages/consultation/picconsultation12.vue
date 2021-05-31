@@ -78,7 +78,7 @@
 			</uni-list>
 		</view>
 		<view class="uni-flex mt-20">
-			<button type="primary" class="piccon_button" @click="picodoneAction"><text
+			<button type="primary" class="piccon_button" @click="picodoneAction12"><text
 					class="font-md">提交</text></button>
 		</view>
 	</view>
@@ -91,7 +91,7 @@
 		let year = date.getFullYear();
 		let month = date.getMonth() + 1;
 		let day = date.getDate();
-
+		console.log(date) //Wed Aug 21 2019 10:00:58 GMT+0800 (中国标准时间)
 		if (type === 'start') {
 			year = year - 60;
 		} else if (type === 'end') {
@@ -140,7 +140,7 @@
 			bindDateChange: function(e) {
 				this.birthday = e.detail.value
 			},
-			picodoneAction: function() {
+			picodoneAction12: function() {
 				let genders=this.genderd?"男":"女";
 				let heals0=this.heal0?"无过敏史":"有过敏史";
 				let heals1=this.heal1?"无过往病史":"有过往病史";
@@ -159,6 +159,9 @@
 				            console.log('用户点击取消');
 				        }
 				    }
+				});
+				uni.navigateTo({
+					url: "../login/login"
 				});
 			},
 		}
