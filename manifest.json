@@ -2,8 +2,8 @@
     "name" : "丁雨医生",
     "appid" : "__UNI__BB30A0D",
     "description" : "丁雨医生提供真实医生的在线医疗健康咨询服务",
-    "versionName" : "1.0.1",
-    "versionCode" : 101,
+    "versionName" : "1.0.2",
+    "versionCode" : 102,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
