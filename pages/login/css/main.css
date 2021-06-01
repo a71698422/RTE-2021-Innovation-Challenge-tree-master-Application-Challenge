@@ -131,6 +131,7 @@
 }
 
 .nameFocus input,
+.againFocus input,
 .psdFocus input {
 	border: 4rpx solid #00C58F;
 	box-sizing: border-box;

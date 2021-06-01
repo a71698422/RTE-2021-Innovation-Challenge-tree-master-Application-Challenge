@@ -352,9 +352,10 @@
 	}
 
 	.uni-list-item__content-title {
-		font-size: $uni-font-size-base;
-		color: #3b4144;
+		font-size: $uni-font-size-main;
+		color: #535568;
 		overflow: hidden;
+		letter-spacing: 1rpx;
 	}
 
 	.uni-list-item__content-note {

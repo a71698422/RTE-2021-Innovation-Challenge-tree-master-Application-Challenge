@@ -18,7 +18,7 @@
 				<text class="header_tips">密码/Key</text>
 				<view :class="'register_pwd ' + psdFocus">
 					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)"
-						@focus="onFocusPsd" @blur="onBlurPsd">
+						@focus="onFocusPsd" @blur="onBlurPsd"  :password="!showPassword" maxlength="16">
 					<!-- 是否可见密码 -->
 					<uni-icons class="pass_icon" :type="showPassword?'eye':'eye-slash'" color="#92939F" size="24"
 						@tap="showPassAction" />
@@ -26,7 +26,7 @@
 				<text class="header_tips">确认密码/Key</text>
 				<view :class="'register_again ' + againFocus">
 					<input type="text" v-model="useragain" placeholder="确认密码" placeholder-style="color:rgb(173,185,193)"
-						@focus="onFocusAgain" @blur="onBlurPsd">
+						@focus="onFocusAgain" @blur="onBlurAgain" :password="!showPassagain" maxlength="16">
 					<!-- 是否可见密码 -->
 					<uni-icons class="pass_icon" :type="showPassagain?'eye':'eye-slash'" color="#92939F" size="24"
 						@tap="showAgainAction" />
@@ -70,6 +70,7 @@
 				useragain: "",
 				psdFocus: "",
 				nameFocus: "",
+				againFocus: "",
 				checkAgree: false, //协议是否选择
 				showPassword: false, //是否显示明文
 				showPassagain: false, //是否显示明文
@@ -82,6 +83,16 @@
 			_this = this;
 		},
 		methods: {
+			onFocusName: function() {
+				this.setData({
+					nameFocus: 'nameFocus'
+				});
+			},
+			onBlurName: function() {
+				this.setData({
+					nameFocus: ''
+				});
+			},
 			onFocusPsd: function() {
 				this.setData({
 					psdFocus: 'psdFocus'
@@ -92,14 +103,14 @@
 					psdFocus: ''
 				});
 			},
-			onFocusName: function() {
+			onFocusAgain: function() {
 				this.setData({
-					nameFocus: 'nameFocus'
+					againFocus: 'againFocus'
 				});
 			},
-			onBlurName: function() {
+			onBlurAgain: function() {
 				this.setData({
-					nameFocus: ''
+					againFocus: ''
 				});
 			},
 			showPassAction() {
@@ -198,7 +209,7 @@
 	}
 
 	.agree-default {
-		margin: 6rpx;
+		margin: 8rpx;
 		width: 24rpx;
 		height: 24rpx;
 		border: 2rpx solid #999999;
@@ -207,7 +218,7 @@
 	}
 
 	.agree-check {
-		margin: 6rpx;
+		margin: 8rpx;
 		width: 24rpx;
 		height: 24rpx;
 		border: 6rpx solid #25B4A5;

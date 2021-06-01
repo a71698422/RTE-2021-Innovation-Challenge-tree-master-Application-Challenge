@@ -10,7 +10,7 @@
 
 		<view class="flex align-center mt-32">
 			<uni-list class="text-left" :border="false">
-				<uni-list-item showArrow="true" title="设置" showExtraIcon="true" to="../wallet-main/wallet-main">
+				<uni-list-item showArrow="true" title="设置" showExtraIcon="true" to="../mine/usersetings">
 					<template slot="header">
 						<image class="slot-image" src="@/static/iconfont/icon_assetting1.png"></image>
 					</template>
@@ -42,6 +42,13 @@
 
 			}
 		},
+		onLoad() {
+		if (!store.state.hasLogin) {
+			return uni.navigateTo({
+				url: '../login/login'
+			});
+		}
+		},
 		onReady() {
 
 		},
@@ -50,9 +57,6 @@
 				uni.showToast({
 					title: '请先登录',
 					icon: 'none'
-				});
-				return uni.navigateTo({
-					url: '../login/login'
 				});
 			}
 		},
@@ -65,7 +69,7 @@
 			},
 			openMineData() {
 				uni.navigateTo({
-					url: '../personal-data/personal-data'
+					url: '../mine/personal-data'
 				});
 			}
 		}
