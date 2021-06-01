@@ -11,34 +11,43 @@
 			<!-- 主体表单 -->
 			<view class="register_main">
 				<text class="header_tips">用户名/room</text>
-				<view :class="'login_user ' + nameFocus">
+				<view :class="'register_user ' + nameFocus">
 					<input type="text" v-model="username" placeholder="用户名" placeholder-style="color:rgb(173,185,193)"
 						@focus="onFocusName" @blur="onBlurName">
 				</view>
 				<text class="header_tips">密码/Key</text>
-				<view :class="'login_pwd ' + psdFocus">
-					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)" 
-					 @focus="onFocusPsd" @blur="onBlurPsd">
+				<view :class="'register_pwd ' + psdFocus">
+					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)"
+						@focus="onFocusPsd" @blur="onBlurPsd">
+					<!-- 是否可见密码 -->
+					<uni-icons class="pass_icon" :type="showPassword?'eye':'eye-slash'" color="#92939F" size="24"
+						@tap="showPassAction" />
 				</view>
 				<text class="header_tips">确认密码/Key</text>
-				<view :class="'login_pwd ' + psdFocus">
-					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)" 
-					 @focus="onFocusPsd" @blur="onBlurPsd">
+				<view :class="'register_again ' + againFocus">
+					<input type="text" v-model="useragain" placeholder="确认密码" placeholder-style="color:rgb(173,185,193)"
+						@focus="onFocusAgain" @blur="onBlurPsd">
+					<!-- 是否可见密码 -->
+					<uni-icons class="pass_icon" :type="showPassagain?'eye':'eye-slash'" color="#92939F" size="24"
+						@tap="showAgainAction" />
+				</view>
+				<view class="agree-view">
+					<text :class="checkAgree?'agree-check':'agree-default'" @click="checkAction"></text>
+					<text class="agree-text">同意环信服务条款与环信隐私协议</text>
 				</view>
 			</view>
-			
-			<view class="login_btn">
+			<view class="register_btn">
 				<button hover-class="btn_hover" @tap="startReg">注册</button>
 			</view>
-			
+
 			<!-- 返回登录 -->
 			<view class="footer">
 				<navigator url="login" open-type="navigate">返回登录</navigator>
 			</view>
-			
+
 			<!-- 底部信息 -->
 			<view class="register_bottom">
-				<text>本产品由环信提供  当前版本：1.4.1</text>
+				<text>本产品由环信提供 当前版本：1.4.1</text>
 			</view>
 		</view>
 	</view>
@@ -58,13 +67,16 @@
 				isFocus: true, // 是否聚焦
 				username: "",
 				userpass: "",
+				useragain: "",
 				psdFocus: "",
 				nameFocus: "",
-				showAgree: true, //协议是否选择
+				checkAgree: false, //协议是否选择
+				showPassword: false, //是否显示明文
+				showPassagain: false, //是否显示明文
 			}
 		},
 		components: {
-			
+
 		},
 		mounted() {
 			_this = this;
@@ -90,9 +102,16 @@
 					nameFocus: ''
 				});
 			},
-			isShowAgree() {
+			showPassAction() {
+				//是否显示密码
+				this.showPassword = !this.showPassword
+			},
+			showAgainAction() {
+				this.showPassagain = !this.showPassagain
+			},
+			checkAction() {
 				//是否选择协议
-				_this.showAgree = !_this.showAgree;
+				_this.checkAgree = !_this.checkAgree;
 			},
 			getVerCode() {
 				//获取验证码
@@ -171,4 +190,33 @@
 
 <style>
 	@import url("./css/main.css");
+
+	.agree-view {
+		display: flex;
+		flex-direction: row;
+		margin-left: 32rpx;
+	}
+
+	.agree-default {
+		margin: 6rpx;
+		width: 24rpx;
+		height: 24rpx;
+		border: 2rpx solid #999999;
+		border-radius: 12rpx;
+		box-sizing: border-box;
+	}
+
+	.agree-check {
+		margin: 6rpx;
+		width: 24rpx;
+		height: 24rpx;
+		border: 6rpx solid #25B4A5;
+		border-radius: 12rpx;
+		box-sizing: border-box;
+	}
+
+	.agree-text {
+		color: #25B4A5;
+		font-size: 24rpx;
+	}
 </style>

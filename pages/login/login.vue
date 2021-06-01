@@ -12,15 +12,18 @@
 				<text class="header_tips">用户名/room</text>
 				<view :class="'login_user ' + nameFocus">
 					<input type="text" v-model="username" placeholder="用户名" placeholder-style="color:rgb(173,185,193)"
-						@focus="onFocusName" @blur="onBlurName">
+						@focus="onFocusName" @blur="onBlurName"/>
 				</view>
 				<text class="header_tips">密码/Key</text>
 				<view :class="'login_pwd ' + psdFocus">
-					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)" 
-					 @focus="onFocusPsd" @blur="onBlurPsd">
+					<!-- 文本框 -->
+					<input type="text" v-model="userpass" placeholder="密码" placeholder-style="color:rgb(173,185,193)"
+						@focus="onFocusPsd" @blur="onBlurPsd" :password="!showPassword" maxlength="16"/>
+					<!-- 是否可见密码 -->
+					<uni-icons class="pass_icon" :type="showPassword?'eye':'eye-slash'" color="#92939F" size="24" @tap="showPassAction"/>
 				</view>
 			</view>
-			
+
 
 			<view class="login_btn">
 				<button hover-class="btn_hover" @tap="startLogin">登录</button>
@@ -30,10 +33,10 @@
 			<view class="footer">
 				<navigator url="register" open-type="navigate">注册账号</navigator>
 			</view>
-			
+
 			<!-- 底部信息 -->
 			<view class="login_bottom">
-				<text>本产品由环信提供  当前版本：1.4.1</text>
+				<text>本产品由环信提供 当前版本：1.4.1</text>
 			</view>
 		</view>
 	</view>
@@ -45,6 +48,7 @@
 	export default {
 		data() {
 			return {
+				showPassword: false, //是否显示明文
 				//logo图片 base64
 				logoImage: '/static/icons/icon_showlog.png',
 				phoneData: '', //用户/电话
@@ -58,7 +62,7 @@
 			};
 		},
 		components: {
-			
+
 		},
 		mounted() {
 			_this = this;
@@ -84,6 +88,10 @@
 				this.setData({
 					nameFocus: ''
 				});
+			},
+			showPassAction() {
+				//是否显示密码
+				this.showPassword = !this.showPassword
 			},
 			isLogin() {
 				//判断缓存中是否登录过，直接登录

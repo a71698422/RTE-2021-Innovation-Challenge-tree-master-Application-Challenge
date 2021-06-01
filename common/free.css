@@ -1794,6 +1794,14 @@
 	z-index: 1030;
 }
 
+.fixed-right {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1030;
+}
+
 .top-0 {
 	top: 0;
 }
