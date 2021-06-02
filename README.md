@@ -25,7 +25,7 @@
 HBuilder X 3.1.12
 
 ### 运行环境
-Android8IOS9以上
+Android8 iOS9以上
 
 ## 运行说明
 本项目登录注册功能全部采用环信sdk提供的登录注册功能
